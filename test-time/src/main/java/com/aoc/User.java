@@ -8,7 +8,7 @@ public class User {
         return subscriptionEndTime;
     }
 
-    public Long setSubscriptionEndTime(Long subscriptionEndTime) {
-        return subscriptionEndTime;
+    public void setSubscriptionEndTime(Long subscriptionEndTime) {
+        this.subscriptionEndTime = subscriptionEndTime;
     }
 }

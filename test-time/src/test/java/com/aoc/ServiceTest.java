@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import org.junit.Test;
+
 import java.time.Clock;
 import java.time.Instant;
 import java.time.ZoneOffset;
@@ -14,6 +16,7 @@ public class ServiceTest {
     private static final long NOW = 1000L;
     private static final long FUTURE = 1500L;
 
+    @Test
     public void testExpireWithClock() {
 
         UsersRepository usersRepository = mock(UsersRepository.class);
@@ -30,6 +33,7 @@ public class ServiceTest {
             new SubscriptionServiceUsingClock(usersRepository, Clock.fixed(Instant.ofEpochMilli(NOW), ZoneOffset.UTC));
 
         service.expireSubscription();
+
         assertThat(userNoSubscription.getSubscriptionEndTime()).isNull();
         assertThat(userActiveSubscription.getSubscriptionEndTime()).isEqualTo(FUTURE);
         assertThat(userExpiredSubscriptionPast.getSubscriptionEndTime()).isNull();

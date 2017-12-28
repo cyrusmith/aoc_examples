@@ -17,7 +17,7 @@ public class SubscriptionServiceUsingClock {
         List<User> users = usersRepository.getUsers();
         long now = clock.millis();
         for (User user : users) {
-            if (user.getSubscriptionEndTime() != null && user.getSubscriptionEndTime() >= now) {
+            if (user.getSubscriptionEndTime() != null && user.getSubscriptionEndTime() <= now) {
                 user.setSubscriptionEndTime(null);
             }
         }
