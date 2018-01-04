@@ -8,7 +8,9 @@ public class SubscriptionServiceUsingClock {
     private final UsersRepository usersRepository;
     private final Clock clock;
 
-    public SubscriptionServiceUsingClock(UsersRepository usersRepository, Clock clock) {
+    public SubscriptionServiceUsingClock(
+        UsersRepository usersRepository,
+        Clock clock) {
         this.usersRepository = usersRepository;
         this.clock = clock;
     }
